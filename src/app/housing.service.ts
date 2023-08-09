@@ -6,17 +6,22 @@ import { HousingLocation } from './housinglocation';
 })
 export class HousingService {
 
-  url = 'http://localhost:3000/locations';
+  url = 'https://json-server-mandira10.vercel.app/api/data';
 
   async getAllHousingLocations(): Promise<HousingLocation[]> {
-    const data = await fetch(this.url);
-    return await data.json() ?? [];
+    const response = await fetch(this.url);
+    const data = await response.json();
+    return data[0]?.locations ?? [];
   }
+  
 
   async getHousingLocationById(id: number): Promise<HousingLocation | undefined> {
-    const data = await fetch(`${this.url}/${id}`);
-    return await data.json() ?? {};
+    const response = await fetch(this.url);
+    const data = await response.json();
+    const locations = data[0]?.locations ?? [];
+    return locations.find((location: { id: number; }) => location.id === id);
   }
+  
 
   submitApplication(firstName: string, lastName: string, email: string) {
     console.log(firstName, lastName, email);
