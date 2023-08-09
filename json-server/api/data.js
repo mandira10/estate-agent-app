@@ -2,7 +2,7 @@ module.exports = (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET');
     
-    const data = [
+    const data = 
         {
             "locations": [
             {
@@ -107,7 +107,7 @@ module.exports = (req, res) => {
             }
             ]
             }
-    ];
+    ;
     res.status(200).json(data);
   };
   
