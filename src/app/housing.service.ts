@@ -7,7 +7,7 @@ import { HousingLocation } from './housinglocation';
 export class HousingService {
 
 
-  url = 'https://json-server-mandira10.vercel.app/api/data';
+  url = 'https://json-real-estate-db.vercel.app/api/data';
   // url = 'http://localhost:4000/api/data';
 
 
